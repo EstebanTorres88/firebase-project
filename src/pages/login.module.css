@@ -1,0 +1,46 @@
+.page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding-block: 3rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  padding: 2rem;
+  border: 1px solid var(--bg-400);
+  border-radius: var(--rounded-lg);
+  background-color: var(--bg-100);
+  box-shadow: var(--shadow-md);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.6rem;
+}
+
+.title {
+  font-size: var(--fs-2xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.desc {
+  color: var(--text-300);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.loading {
+  color: var(--text-400);
+  font-size: var(--fs-sm);
+}
+
+@media (width <= 528px) {
+  .card {
+    padding: 1.35rem;
+  }
+}

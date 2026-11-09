@@ -18,7 +18,7 @@ export default function Students() {
       try {
         /*
           ==================================================================
-          PASO 5 · Leer los estudiantes desde Cloud Firestore
+          PASO 6 · Leer los estudiantes desde Cloud Firestore
           ==================================================================
 
           1. Agrega estos dos imports al inicio del archivo, debajo del

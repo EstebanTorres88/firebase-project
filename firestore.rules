@@ -10,16 +10,14 @@ rules_version = '2';
 // Para eso el proyecto necesita un archivo firebase.json que indique
 // "firestore": { "rules": "firestore.rules" }.
 //
-// ADVERTENCIA: `if true` permite leer y escribir a cualquier persona que
-// conozca el ID del proyecto. Sirve para la demostración, no para producción.
-// Para restringir la escritura a usuarios con sesión iniciada se usaría:
-//   allow read: if true;
-//   allow write: if request.auth != null;
+// request.auth != null exige una sesión iniciada. La aplicación inicia sesión
+// con Firebase Authentication (correo y contraseña) antes de leer o escribir,
+// así que las peticiones llevan el token del usuario.
 
 service cloud.firestore {
   match /databases/{database}/documents {
     match /students/{studentId} {
-      allow read, write: if true;
+      allow read, write: if request.auth != null;
     }
   }
 }

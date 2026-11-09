@@ -57,6 +57,30 @@
   gap: 0.35rem;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.session {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--bg-300);
+}
+
+.email {
+  max-width: 200px;
+  overflow: hidden;
+  color: var(--text-400);
+  font-size: var(--fs-2xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .link {
   display: inline-flex;
   align-items: center;
@@ -82,6 +106,16 @@
   font-weight: 600;
 }
 
+@media (width <= 760px) {
+  .email {
+    display: none;
+  }
+
+  .session {
+    padding-left: 0.5rem;
+  }
+}
+
 @media (width <= 560px) {
   .inner {
     min-height: 64px;
@@ -94,6 +128,14 @@
 
   .brandText {
     font-size: var(--fs-xs);
+  }
+
+  .actions {
+    gap: 0.35rem;
+  }
+
+  .logoutLabel {
+    display: none;
   }
 
   .link {

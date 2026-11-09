@@ -1,0 +1,10 @@
+.page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.message {
+  color: var(--text-400);
+  font-size: var(--fs-sm);
+}

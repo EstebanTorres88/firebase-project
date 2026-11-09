@@ -1,14 +1,24 @@
-import { GraduationCap } from 'lucide-react';
-import { Link, NavLink } from 'react-router-dom';
+import { GraduationCap, LogOut } from 'lucide-react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/auth-context';
+import Button from './button';
 import styles from './header.module.css';
 
 /**
- * Barra superior con la marca y la navegación principal.
+ * Barra superior con la marca, la navegación principal y la sesión actual.
  *
  * `NavLink` es la versión de `Link` que conoce la ruta activa: recibe una
  * función en `className` y aplica el estilo solo cuando la ruta coincide.
  */
 export default function Header() {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login', { replace: true });
+  };
+
   return (
     <header className={styles.header}>
       <div className={`wrapper ${styles.inner}`}>
@@ -22,31 +32,51 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav aria-label="Navegación principal">
-          <ul className={styles.nav}>
-            <li>
-              <NavLink
-                to="/"
-                end
-                className={({ isActive }) =>
-                  isActive ? `${styles.link} ${styles.active}` : styles.link
-                }
+        <div className={styles.actions}>
+          <nav aria-label="Navegación principal">
+            <ul className={styles.nav}>
+              <li>
+                <NavLink
+                  to="/"
+                  end
+                  className={({ isActive }) =>
+                    isActive ? `${styles.link} ${styles.active}` : styles.link
+                  }
+                >
+                  Lista
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/registrar"
+                  className={({ isActive }) =>
+                    isActive ? `${styles.link} ${styles.active}` : styles.link
+                  }
+                >
+                  Registrar
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+
+          {user && (
+            <div className={styles.session}>
+              <span className={styles.email} title={user.email ?? ''}>
+                {user.email}
+              </span>
+
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleLogout}
+                aria-label="Cerrar sesión"
               >
-                Lista
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/registrar"
-                className={({ isActive }) =>
-                  isActive ? `${styles.link} ${styles.active}` : styles.link
-                }
-              >
-                Registrar
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
+                <LogOut size={15} strokeWidth={1.8} aria-hidden="true" />
+                <span className={styles.logoutLabel}>Cerrar sesión</span>
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

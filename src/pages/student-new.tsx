@@ -11,7 +11,7 @@ export default function StudentNew() {
   const handleSubmit = async (input: StudentRequest) => {
     /*
       ======================================================================
-      PASO 4 · Guardar el estudiante en Cloud Firestore
+      PASO 5 · Guardar el estudiante en Cloud Firestore
       ======================================================================
 
       1. Agrega estos dos imports al inicio del archivo, debajo del último
@@ -41,6 +41,7 @@ export default function StudentNew() {
                   en la colección. Devuelve una promesa; si falla, el
                   formulario muestra el mensaje de error.
     */
+    console.log('Estudiante capturado por el formulario:', input);
 
     navigate('/');
   };

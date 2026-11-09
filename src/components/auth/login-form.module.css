@@ -1,0 +1,91 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.group label {
+  color: var(--text-200);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.field {
+  position: relative;
+  display: block;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: var(--text-400);
+  pointer-events: none;
+}
+
+.field input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0.75rem 1rem 0.75rem 2.85rem;
+
+  background-color: var(--bg-100);
+  border: 1px solid var(--bg-500);
+  border-radius: var(--rounded-sm);
+
+  color: var(--text-100);
+  font-size: var(--fs-sm);
+
+  transition:
+    border-color var(--ti-md) ease,
+    box-shadow var(--ti-md) ease;
+}
+
+.field input::placeholder {
+  color: var(--text-500);
+}
+
+.field input:hover {
+  border-color: var(--bg-600);
+}
+
+.field input:focus {
+  border-color: var(--accent-500);
+  box-shadow: 0 0 0 3px var(--accent-100);
+  outline: none;
+}
+
+.field input[aria-invalid='true'] {
+  border-color: var(--error-100);
+}
+
+.error {
+  color: var(--error-100);
+  font-size: var(--fs-2xs);
+  line-height: 1.5;
+}
+
+.submitError {
+  padding: 0.85rem 1rem;
+  border-radius: var(--rounded-sm);
+  background-color: var(--error-200);
+  color: var(--error-100);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  padding-top: 0.35rem;
+}
+
+.actions > button {
+  width: 100%;
+}
