@@ -18,16 +18,15 @@ export default function Students() {
       try {
         /*
           ==================================================================
-          PASO 6 · Leer los estudiantes desde Cloud Firestore
+          PASO 4 · Leer los estudiantes desde Cloud Firestore
           ==================================================================
 
-          1. Agrega estos dos imports al inicio del archivo, debajo del
-             último import que ya existe:
+          1. Imports:
 
                import { collection, getDocs } from 'firebase/firestore';
                import { db } from '../firebase';
 
-          2. Reemplaza la línea `setStudents([]);` por este código:
+          2. Reemplaza setStudents([]) por:
 
                const snapshot = await getDocs(collection(db, 'students'));
 
@@ -37,35 +36,9 @@ export default function Students() {
                    ...(document.data() as Omit<Student, 'id'>),
                  })),
                );
-
-          ------------------------------------------------------------------
-          Métodos utilizados
-          ------------------------------------------------------------------
-
-          collection(db, 'students')
-            Recibe:    db, la instancia de Firestore que exporta
-                       src/firebase.ts. 'students', el nombre de la colección.
-            Propósito: devolver una referencia a la colección.
-
-          getDocs(referencia)
-            Recibe:    la referencia de la colección.
-            Propósito: leer todos los documentos una sola vez. Devuelve una
-                       promesa con un QuerySnapshot.
-
-          snapshot.docs
-            Propósito: arreglo con los documentos leídos. Si la colección
-                       está vacía, es un arreglo vacío.
-
-          document.id
-            Propósito: el identificador que Firestore generó al crear el
-                       documento.
-
-          document.data()
-            Recibe:    nada.
-            Propósito: devolver los campos del documento (name, email,
-                       career) como un objeto.
-
         */
+
+
         setStudents([]);
       } catch (caught) {
         setError(
