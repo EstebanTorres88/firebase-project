@@ -1,0 +1,196 @@
+.tableWrap {
+  overflow: hidden;
+  border: 1px solid var(--bg-400);
+  border-radius: var(--rounded-lg);
+  background-color: var(--bg-100);
+  box-shadow: var(--shadow-sm);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--bg-300);
+}
+
+.heading {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.count {
+  color: var(--text-400);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.table thead th {
+  padding: 0.85rem 1.5rem;
+  border-bottom: 1px solid var(--bg-300);
+  background-color: var(--bg-150);
+
+  color: var(--text-400);
+  font-size: var(--fs-3xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.row {
+  transition: background-color var(--ti-md) ease;
+}
+
+.row > th,
+.row > td {
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--bg-200);
+  vertical-align: middle;
+  font-weight: 400;
+}
+
+.table tbody tr:last-child > th,
+.table tbody tr:last-child > td {
+  border-bottom: none;
+}
+
+.nameCell {
+  width: 34%;
+  color: var(--text-100);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.emailCell {
+  width: 33%;
+  color: var(--text-300);
+  font-size: var(--fs-sm);
+  overflow-wrap: anywhere;
+}
+
+.careerCell {
+  width: 33%;
+}
+
+.career {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--rounded-full);
+  background-color: var(--accent-100);
+  color: var(--accent-600);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.message {
+  padding: 3.5rem 1.5rem;
+  color: var(--text-300);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.messageError {
+  color: var(--error-100);
+}
+
+@media (hover: hover) {
+  .row:hover {
+    background-color: var(--bg-150);
+  }
+}
+
+/* En pantallas angostas cada fila se convierte en una tarjeta. */
+
+@media (width <= 720px) {
+  .table,
+  .table tbody,
+  .table tr,
+  .table th,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .row {
+    padding: 1.1rem 1.25rem;
+    border-bottom: 1px solid var(--bg-300);
+  }
+
+  .table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .row > th,
+  .row > td {
+    padding: 0;
+    border: none;
+  }
+
+  .row > th + td,
+  .row > td + td {
+    margin-top: 0.75rem;
+  }
+
+  .row > th::before,
+  .row > td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.25rem;
+
+    color: var(--text-400);
+    font-size: var(--fs-3xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .nameCell,
+  .emailCell,
+  .careerCell {
+    width: 100%;
+  }
+
+  .message {
+    padding: 2.5rem 1.25rem;
+    font-size: var(--fs-xs);
+  }
+}

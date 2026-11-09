@@ -1,0 +1,136 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.35rem;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.group label {
+  color: var(--text-200);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+
+.field {
+  position: relative;
+  display: block;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: var(--text-400);
+  pointer-events: none;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-height: 50px;
+  padding: 0.75rem 1rem 0.75rem 2.85rem;
+
+  background-color: var(--bg-100);
+  border: 1px solid var(--bg-500);
+  border-radius: var(--rounded-sm);
+
+  color: var(--text-100);
+  font-size: var(--fs-sm);
+
+  transition:
+    border-color var(--ti-md) ease,
+    box-shadow var(--ti-md) ease;
+}
+
+.field input::placeholder {
+  color: var(--text-500);
+}
+
+.field input:hover,
+.field select:hover {
+  border-color: var(--bg-600);
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--accent-500);
+  box-shadow: 0 0 0 3px var(--accent-100);
+  outline: none;
+}
+
+.field input[aria-invalid='true'],
+.field select[aria-invalid='true'] {
+  border-color: var(--error-100);
+}
+
+/* Select: se quita la flecha del navegador y se dibuja una propia. */
+
+.field select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.field:has(select)::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 3px);
+  right: 1.15rem;
+
+  width: 8px;
+  height: 8px;
+
+  border-right: 2px solid var(--text-300);
+  border-bottom: 2px solid var(--text-300);
+  transform: rotate(45deg);
+
+  pointer-events: none;
+}
+
+.error {
+  color: var(--error-100);
+  font-size: var(--fs-2xs);
+  line-height: 1.5;
+}
+
+.submitError {
+  padding: 0.85rem 1rem;
+  border-radius: var(--rounded-sm);
+  background-color: var(--error-200);
+  color: var(--error-100);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.35rem;
+}
+
+@media (width <=700px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .actions {
+    justify-content: stretch;
+  }
+
+  .actions>button {
+    width: 100%;
+  }
+}

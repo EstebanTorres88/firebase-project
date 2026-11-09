@@ -1,0 +1,103 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid var(--bg-300);
+  backdrop-filter: blur(10px);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 72px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.brandIcon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: var(--rounded-sm);
+  background-color: var(--text-100);
+  color: var(--bg-100);
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.brandMeta {
+  color: var(--text-400);
+  font-size: var(--fs-3xs);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding-inline: 0.85rem;
+  border-radius: var(--rounded-full);
+  color: var(--text-300);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  transition:
+    background-color var(--ti-md) ease,
+    color var(--ti-md) ease;
+}
+
+.link:hover {
+  background-color: var(--bg-200);
+  color: var(--text-100);
+}
+
+.active {
+  background-color: var(--bg-300);
+  color: var(--text-100);
+  font-weight: 600;
+}
+
+@media (width <= 560px) {
+  .inner {
+    min-height: 64px;
+    gap: 1rem;
+  }
+
+  .brandMeta {
+    display: none;
+  }
+
+  .brandText {
+    font-size: var(--fs-xs);
+  }
+
+  .link {
+    padding-inline: 0.7rem;
+    font-size: var(--fs-xs);
+  }
+}

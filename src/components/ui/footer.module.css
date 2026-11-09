@@ -1,0 +1,26 @@
+.footer {
+  border-top: 1px solid var(--bg-300);
+  background-color: var(--bg-150);
+  margin-top: 5rem;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1.75rem;
+}
+
+.copy {
+  color: var(--text-300);
+  font-size: var(--fs-xs);
+}
+
+.meta {
+  color: var(--text-400);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}

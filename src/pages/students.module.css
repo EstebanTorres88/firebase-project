@@ -1,0 +1,14 @@
+.page {
+  padding-block: 3.5rem 4rem;
+  min-height: calc(100vh - 72px - 90px);
+}
+
+.body {
+  margin-top: 0.5rem;
+}
+
+@media (width <= 640px) {
+  .page {
+    padding-block: 2.25rem 2.5rem;
+  }
+}

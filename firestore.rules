@@ -1,0 +1,25 @@
+rules_version = '2';
+
+// Reglas de Cloud Firestore para la práctica.
+//
+// Este archivo es la versión en texto de las reglas que se pegan en la consola:
+// Firebase Console > Firestore Database > pestaña Reglas.
+//
+// También se pueden desplegar con la CLI de Firebase:
+//   firebase deploy --only firestore:rules
+// Para eso el proyecto necesita un archivo firebase.json que indique
+// "firestore": { "rules": "firestore.rules" }.
+//
+// ADVERTENCIA: `if true` permite leer y escribir a cualquier persona que
+// conozca el ID del proyecto. Sirve para la demostración, no para producción.
+// Para restringir la escritura a usuarios con sesión iniciada se usaría:
+//   allow read: if true;
+//   allow write: if request.auth != null;
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /students/{studentId} {
+      allow read, write: if true;
+    }
+  }
+}
