@@ -1,18 +1,7 @@
 rules_version = '2';
 
 // Reglas de Cloud Firestore para la práctica.
-//
-// Este archivo es la versión en texto de las reglas que se pegan en la consola:
 // Firebase Console > Firestore Database > pestaña Reglas.
-//
-// También se pueden desplegar con la CLI de Firebase:
-//   firebase deploy --only firestore:rules
-// Para eso el proyecto necesita un archivo firebase.json que indique
-// "firestore": { "rules": "firestore.rules" }.
-//
-// request.auth != null exige una sesión iniciada. La aplicación inicia sesión
-// con Firebase Authentication (correo y contraseña) antes de leer o escribir,
-// así que las peticiones llevan el token del usuario.
 
 service cloud.firestore {
   match /databases/{database}/documents {
