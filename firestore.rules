@@ -1,7 +1,11 @@
-rules_version = '2';
-
 // Reglas de Cloud Firestore para la práctica.
 // Firebase Console > Firestore Database > pestaña Reglas.
+
+
+
+
+
+rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
