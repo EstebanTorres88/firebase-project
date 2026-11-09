@@ -9,18 +9,18 @@ export default function StudentNew() {
   const navigate = useNavigate();
 
   const handleSubmit = async (input: StudentRequest) => {
-    /*
-      ======================================================================
+    /* ======================================================================
       PASO 3 · Guardar el estudiante en Cloud Firestore
-      ======================================================================
+      ====================================================================== 
+    */
 
-      1. Imports:
 
+    /*
+      //1. Imports:
            import { addDoc, collection } from 'firebase/firestore';
            import { db } from '../firebase';
 
-      2. Reemplaza el console.log por:
-
+      //2. Reemplaza el console.log por:
            await addDoc(collection(db, 'students'), input);
     */
     console.log('Estudiante capturado por el formulario:', input);

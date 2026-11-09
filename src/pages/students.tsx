@@ -20,23 +20,25 @@ export default function Students() {
           ==================================================================
           PASO 4 · Leer los estudiantes desde Cloud Firestore
           ==================================================================
+         */
 
-          1. Imports:
+        /*
+         //1. Imports:
 
-               import { collection, getDocs } from 'firebase/firestore';
-               import { db } from '../firebase';
+              import { collection, getDocs } from 'firebase/firestore';
+              import { db } from '../firebase';
 
-          2. Reemplaza setStudents([]) por:
+         //2. Reemplaza setStudents([]) por:
 
-               const snapshot = await getDocs(collection(db, 'students'));
+              const snapshot = await getDocs(collection(db, 'students'));
 
-               setStudents(
-                 snapshot.docs.map((document) => ({
-                   id: document.id,
-                   ...(document.data() as Omit<Student, 'id'>),
-                 })),
-               );
-        */
+              setStudents(
+                snapshot.docs.map((document) => ({
+                  id: document.id,
+                  ...(document.data() as Omit<Student, 'id'>),
+                })),
+              );
+       */
 
 
         setStudents([]);
